@@ -8,4 +8,4 @@ Some high level React Bootstrap Widgets based on [React-Bootstrap](http://react-
 
 ### Support
 
-Welcome to [submit issues](https://github.com/sarike/react-bootstrap-widgets/issues/new) to. 
+Welcome to [submit issues](https://github.com/sarike/react-bootstrap-widgets/issues/new) to make it better. 
