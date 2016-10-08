@@ -2,6 +2,7 @@
   "name": "react-bsw",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://react-bootstrap-widgets.github.io",
   "devDependencies": {
     "babel-standalone": "^6.15.0",
     "codemirror": "^5.19.0",
