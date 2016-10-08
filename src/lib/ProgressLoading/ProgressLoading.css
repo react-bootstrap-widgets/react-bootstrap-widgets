@@ -1,0 +1,64 @@
+.progress-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    & > :global(.progress) {
+        margin-bottom: 0;
+        height: 3px;
+        border-radius: 0;
+        background-color: #FFF;
+        overflow: visible;
+        &> :global(.progress-bar) {
+            position: relative;
+            transition: width .3s ease;
+            &::after {
+                content: '';
+                display: block;
+                width: 100px;
+                height: 6px;
+                position: absolute;
+                right: 0;
+                transform: rotate(3deg) translate(0px, -6px);
+            }
+            &:global(.progress-bar-info) {
+                &::after {
+                    box-shadow: 0 0 10px #5bc0de, 0 0 5px #5bc0de;
+                }
+            }
+            &:global(.progress-bar-success) {
+                &::after {
+                    box-shadow: 0 0 10px #5cb85c, 0 0 5px #5cb85c;
+                }
+            }
+            &:global(.progress-bar-danger) {
+                &::after {
+                    box-shadow: 0 0 10px #d9534f, 0 0 5px #d9534f;
+                }
+            }
+            &:global(.progress-bar-warning) {
+                &::after {
+                    box-shadow: 0 0 10px #f0ad4e, 0 0 5px #f0ad4e;
+                }
+            }
+        }
+    }
+}
+
+.immediate-trans {
+    & > :global(.progress) {
+        & > :global(.progress-bar) {
+            transition-duration: 0s;
+        }
+    }
+}
+
+.count-label {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 25px;
+    height: 15px;
+    border-radius: 10px;
+}

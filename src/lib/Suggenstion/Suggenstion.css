@@ -1,0 +1,34 @@
+.sug {
+    position: relative;
+    .selected-tag-wrapper {
+        position: absolute;
+        top: 0;
+        cursor: text;
+    }
+    .selected {
+        padding: 0 5px;
+        margin: 6px 0 6px 5px;
+        display: inline-block;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input {
+        height: auto;
+    }
+    :global(i.fa.fa-spin) {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    :global(.list-group) {
+        position: absolute;
+        margin-top: -1px;
+        width: 100%;
+        z-index: 10;
+        :global(.list-group-item) {
+            border-radius: 0;
+            cursor: pointer;
+        }
+    }
+}

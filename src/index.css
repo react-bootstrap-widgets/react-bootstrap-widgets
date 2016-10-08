@@ -1,0 +1,168 @@
+html {
+  font-size: 16px;
+}
+
+html,
+body,
+#root,
+#app,
+.sidebar {
+  height: 100%;
+}
+
+#root {
+  padding-top: 50px;
+  line-height: 2;
+}
+
+#app {
+  position: relative;
+}
+
+.sidebar {
+  padding-top: 20px;
+  width: 260px;
+  overflow-y: auto;
+  border-right: 1px solid #DDD;
+  position: fixed;
+}
+
+.main {
+  padding-top: 20px;
+  padding-left: 300px;
+  padding-right: 40px;
+}
+
+.doc-navigation > ul > li > a {
+  font-size: 1rem;
+}
+
+.doc-navigation > ul > li {
+  margin-bottom: 10px;
+}
+
+.doc-navigation ul {
+  padding-left: 0;
+}
+
+.doc-navigation li {
+  list-style: none;
+}
+
+.doc-navigation li li {
+  padding-left: 20px;
+}
+
+.doc-navigation li > ul {
+  display: none;
+}
+.doc-navigation li.open > ul {
+  display: block;
+}
+
+.doc-navigation li a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  width: 100%;
+  color: #364149;
+}
+
+.doc-navigation li a:hover {
+  background-color: aliceblue;
+}
+
+.doc-navigation li a.active {
+  color: #5bc0de;
+}
+
+.doc-navigation li a::before {
+  width: 20px;
+  text-align: center;
+  content: '';
+  display: inline-block;
+}
+
+li.has-children > a::before {
+  font-family: 'FontAwesome', sans-serif;
+  content: "\f105";
+}
+
+li.has-children.open > a::before {
+  font-family: 'FontAwesome', sans-serif;
+  content: "\f107";
+}
+
+.sub-title {
+  font-size: 12px;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.cm-s-solarized.CodeMirror {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.highlight, .code-toggle.open {
+  background-color: #fdf6e3;
+}
+
+.cm-s-solarized .cm-comment { color: #93a1a1; }
+
+.CodeMirror, .CodeMirror-scroll {
+  height: auto;
+}
+
+.playground {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.example {
+  margin-bottom: 20px;
+}
+
+.example::before {
+  content: "实例:";
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.prop-table::before {
+  content: "属性列表:";
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.doc-note {
+  border: 1px solid #DDD;
+  border-left-width: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.doc-note h4 {
+  margin-top: 0;
+}
+
+.doc-note.note-info {
+  border-left-color: #5bc0de;
+}
+
+.doc-note.note-info h4{
+  color: #5bc0de;
+}
+
+

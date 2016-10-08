@@ -1,0 +1,15 @@
+.left {
+    :global(.rdtPicker) {
+        left: 0;
+    }
+}
+
+.right {
+    :global(.rdtPicker) {
+        right: 0;
+    }
+}
+
+.inline {
+    display: inline-block;
+}

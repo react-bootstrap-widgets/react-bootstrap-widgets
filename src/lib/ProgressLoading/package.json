@@ -1,0 +1,6 @@
+{
+    "name": "ProgressLoading",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./ProgressLoading.js"
+}
