@@ -165,4 +165,13 @@ p {
   color: #5bc0de;
 }
 
+.navbar-brand {
+  font-weight: bold;
+  color: #5bc0de;
+}
+
+.complete {
+  color: #009900;
+}
+
 

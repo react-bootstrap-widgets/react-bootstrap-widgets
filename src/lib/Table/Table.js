@@ -3,16 +3,85 @@ import ReactBSTable from 'react-bootstrap/lib/Table';
 import Panel from 'react-bootstrap/lib/Panel';
 import isFunction from 'lodash/isFunction';
 import omit from 'lodash/omit';
+import clone from 'lodash/clone';
+
+import './Table.css';
 
 class Table extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      order: [],
+    };
+  }
+
+  processOrder() {
+    if (this.props.data.length === 0) return this.props.data;
+    let data = clone(this.props.data);
+    this.state.order.forEach(o => {
+      data = data.sort(this.compare(o[0], o[1] || 'asc'));
+    });
+    return data;
+  }
+
+  compare(column, order) {
+    const orderDirection = order === 'asc' ? 1 : -1;
+    return function (a, b) {
+      let ret = 0;
+      if (a[column] < b[column]) {
+        ret = -1;
+      }
+      if (a[column] > b[column]) {
+        ret = 1;
+      }
+      return ret * orderDirection;
+    }
+  }
+
+  orderBy(column) {
+    console.info(column);
+    if (this.props.sort.indexOf(column) === -1) return;
+    const os = [];
+    let c = [];
+    this.state.order.forEach((o) => {
+      if (o[0] === column) {
+        c = [o[0], o[1] === 'desc' ? 'asc' : 'desc'];
+      } else {
+        os.push(o);
+      }
+    });
+    if (c.length === 0) {
+      c = [column, 'asc'];
+    }
+    os.push(c);
+    this.setState({ order: os });
+  }
+
+  getOrderMap() {
+    const ret = {};
+    this.state.order.forEach(o => {
+      ret[o[0]] = o[1];
+    });
+    return ret;
+  }
 
   renderHeader() {
     const columns = this.props.columns;
     const labels = this.props.labels;
+    const om = this.getOrderMap();
     const tableHeaderCells = (
       columns.map((c, index) => {
         const thc = labels[c] || c;
-        return <th key={index}>{thc}</th>;
+        return (
+          <th
+            key={index}
+            onClick={() => this.orderBy(c)}
+            className={`${om[c]} ${this.props.sort.indexOf(c) === -1 ? '' : 'sorted-col'}`}
+          >
+            {thc}
+          </th>
+        );
       })
     );
     return <thead>
@@ -39,7 +108,8 @@ class Table extends React.Component {
         <td colSpan={columns.length}>{emptyMessage}</td>
       </tr>;
     } else {
-      rows = data.map((d, index) => (
+      const sortedData = this.processOrder();
+      rows = sortedData.map((d, index) => (
         <tr key={index}>
           {
             columns.map((c, tdIdx) => {
@@ -77,6 +147,7 @@ class Table extends React.Component {
       'selectable',
       'tdClassNames',
       'tdStyles',
+      'sort',
     ]);
     if (!alwaysShowHeader) {
       if (dataLoading) {
@@ -145,6 +216,11 @@ Table.propTypes = {
    * Weather to show table header when table data is empty or loading.
    */
   alwaysShowHeader: React.PropTypes.bool,
+
+  /**
+   * Columns can be sorted.
+   */
+  sort: React.PropTypes.array,
 };
 
 Table.defaultProps = {
@@ -160,6 +236,7 @@ Table.defaultProps = {
   alwaysShowHeader: true,
   hover: true,
   bordered: true,
+  sort: [],
 };
 
 export default Table;

@@ -9,7 +9,7 @@ export {CodeMirror};
 export default class CodeExample extends React.Component {
   render() {
     return (
-      <pre className="cm-s-solarized cm-s-light">
+      <pre className="cm-s-solarized cm-s-light" style={{ display: this.props.inline ? 'inline' : 'block' }}>
         <code>
           {this.props.codeText}
         </code>

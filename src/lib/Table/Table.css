@@ -1,0 +1,34 @@
+th.sorted-col {
+  position: relative;
+  cursor: pointer;
+}
+
+th.sorted-col::after,
+th.sorted-col::before {
+  content: '';
+  position: absolute;
+  border: 4px solid;
+  right: 10px;
+}
+
+th.sorted-col::before {
+  border-color: transparent transparent #aaa;
+  top: 50%;
+  margin-top: -9px;
+}
+
+th.sorted-col::after {
+  border-color: #aaa transparent transparent;
+  top: 50%;
+  margin-top: 1px;
+}
+
+th.sorted-col.desc::after {
+  border-top-color: #000;
+}
+
+th.sorted-col.asc::before {
+  border-bottom-color: #000;
+}
+
+

@@ -21,7 +21,7 @@
     "react-dom": "^15.3.2"
   },
   "scripts": {
-    "gen-metadata": "babel-node ./generate-metadata.js",
+    "gen-metadata": "node ./generate-metadata.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

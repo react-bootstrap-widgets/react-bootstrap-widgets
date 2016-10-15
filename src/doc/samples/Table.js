@@ -13,6 +13,7 @@ class TableDemo extends React.Component {
   }
 
   columns = ['name', 'age', 'city', 'op'];
+  sort = ['age', 'city'];
 
   labels = {
     name: "姓名",
@@ -40,6 +41,7 @@ class TableDemo extends React.Component {
           columns={this.columns}
           templates={this.templates}
           labels={this.labels}
+          sort={this.sort}
         />
       </div>
     );

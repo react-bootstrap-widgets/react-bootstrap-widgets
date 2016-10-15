@@ -19,8 +19,6 @@ const Dialog = _Dialog.default;
 const Form = _Form.default;
 const Confirm = _Confirm.default;
 
-console.info(Table.propsData);
-
 const bootstrapUtils = require('react-bootstrap/lib/utils/bootstrapUtils');
 /* eslint-enable */
 

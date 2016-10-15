@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './doc/App';
 import Router from 'react-router/lib/Router';
 import Route from 'react-router/lib/Route';
+import IndexRedirect from 'react-router/lib/IndexRedirect';
 import browserHistory from 'react-router/lib/browserHistory';
 
 import IntroPage from './doc/pages/Introduction';
@@ -25,6 +26,7 @@ import './index.css';
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+      <IndexRedirect to="/intro.html" />
       <Route path="/intro.html" component={IntroPage} />
       <Route path="/widgets.html" component={WidgetPage} />
       <Route path="/table.html" component={TablePage} />

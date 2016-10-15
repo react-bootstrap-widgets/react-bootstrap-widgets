@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
+import bH from 'react-router/lib/browserHistory';
 
 export default function () {
   return (
@@ -14,9 +15,9 @@ export default function () {
           <NavBar.Toggle />
         </NavBar.Header>
         <NavBar.Collapse>
-          <Nav>
-            <NavItem eventKey={1} href="#">Introduction</NavItem>
-            <NavItem eventKey={2} href="#">Widgets</NavItem>
+          <Nav onSelect={(p, e) => {e.preventDefault(); bH.push(p);}}>
+            <NavItem eventKey={'/intro.html'} href="#">简介</NavItem>
+            <NavItem eventKey={'/widgets.html'} href="#">组件</NavItem>
           </Nav>
         </NavBar.Collapse>
       </NavBar>
